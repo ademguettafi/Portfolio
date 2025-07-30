@@ -81,7 +81,7 @@ const resources = {
         none: "No projects in this category at the moment.",
       },
       footer: {
-        copy: "© {{year}} Portfolio by Adem Guettafi. All rights reserved.",
+        copy: "© {{year}} Portfolio by Adem Guettafi. All rights reserved..",
       },
     },
   },
