@@ -6,7 +6,8 @@ import {
   CardMedia,
   Button,
   Typography,
-  useTheme
+  useTheme,
+  Box
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -15,20 +16,17 @@ import LaunchIcon from '@mui/icons-material/Launch';
 export default function ProjectCard({ project }) {
   const theme = useTheme();
   const { t } = useTranslation();
-
   const isDark = theme.palette.mode === 'dark';
 
-  // Toujours vert pour la bordure
+  // Styles dynamiques
   const borderColor = theme.palette.success.main;
-  // Texte blanc en sombre, vert en clair
-  const textColor = isDark ? '#fff' : theme.palette.success.main;
-  // Icônes blanches en sombre, noires en clair
-  const iconColor = isDark ? '#fff' : '#000';
-  // Fond au survol : nuance foncée de success
-  const hoverBg = theme.palette.success.dark;
+  const textColor   = isDark ? '#fff' : theme.palette.success.main;
+  const iconColor   = isDark ? '#fff' : '#000';
+  const hoverBg     = theme.palette.success.dark;
 
   return (
     <Card
+      elevation={3}
       sx={{
         width: 345,
         height: 450,
@@ -40,33 +38,32 @@ export default function ProjectCard({ project }) {
           boxShadow: theme.shadows[6],
         },
       }}
-      elevation={3}
     >
       {/* Image du projet */}
       <CardMedia
         component="img"
         image={project.image}
-        alt={project.title}
+        alt={t(`projectList.${project.id}.title`)}
         sx={{ height: 180, objectFit: 'cover' }}
       />
 
-      {/* Titre & description */}
+      {/* Titre & description traduits */}
       <CardContent sx={{ flexGrow: 1, px: 2, pt: 2 }}>
         <Typography gutterBottom variant="h6" sx={{ fontWeight: 600 }}>
-          {project.title}
+          {t(`projectList.${project.id}.title`)}
         </Typography>
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          sx={{
-            display: '-webkit-box',
-            WebkitLineClamp: 4,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden'
+   <Box
+         sx={{
+            flex: 1,
+            overflowY: 'auto',
+            pr: 1,    // padding à droite pour ne pas coller la scrollbar
+           mt: 1
           }}
         >
-          {project.description}
-        </Typography>
+         <Typography variant="body2" color="text.secondary">
+            {t(`projectList.${project.id}.description`)}
+          </Typography>
+       </Box>
       </CardContent>
 
       {/* Boutons Démo / Code */}

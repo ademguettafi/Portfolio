@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import './i18n'; // initialise i18next
+import './i18n'; 
 import i18n from 'i18next';
 import { useTranslation } from 'react-i18next';
-
+// MUI imports
 import {
   ThemeProvider,
   createTheme,
@@ -12,18 +12,23 @@ import {
   Grid,
   Box
 } from '@mui/material';
-
+// components imports
 import Header from './components/Header';
 import HomeSection from './components/HomeSection';
 import ProjectsMasonry from './components/ProjectsMasonry';
 import SkillCard from './components/SkillCard';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-
-import cscPic from './media/csc.png';
+import ScrollTop from './components/ScrollTop';
+// images imports 
+import CrudsPic from './media/Cruds.png';
 import xPic from './media/X.png';
+import portfolioPic from './media/portfolioPic.png';
+import todoReactPic from './media/todoReactPic.png';
+import TodoJs from './media/TodoJs.png';
+import club from './media/cc.png';
 
-export default function App() {
+export default function App() { 
   const { t } = useTranslation();
 
   // mode clair/sombre
@@ -67,12 +72,12 @@ export default function App() {
 
   // données statiques
   const projects = [
-    { id: 1, title: 'CRUDS', description: 'Gestion de produits (CRUD)', image: cscPic, repoUrl: '', liveUrl: '', tags: ['JavaScript'] },
-    { id: 2, title: 'Portfolio', description: 'Mon portfolio React/MUI', image: '', repoUrl: '', liveUrl: '', tags: ['React.js', 'Material UI'] },
-    { id: 3, title: 'JEU X-O', description: 'Morpion en JS', image: xPic, repoUrl: '', liveUrl: '', tags: ['JavaScript'] },
-    { id: 4, title: 'List To-Do', description: 'Todo list JS', image: xPic, repoUrl: '', liveUrl: '', tags: ['JavaScript'] },
-    { id: 5, title: 'Todo React', description: 'Todo list React/MUI', image: xPic, repoUrl: '', liveUrl: '', tags: ['React.js', 'Material UI'] },
-    { id: 6, title: 'Clube Web', description: 'App JS pour un club', image: xPic, repoUrl: '', liveUrl: '', tags: ['JavaScript'] },
+    { id:'cruds',  image: CrudsPic, repoUrl: 'https://github.com/ademguettafi/Cruds-System', liveUrl: 'https://adem-cruds-system.netlify.app/', tags: ['JavaScript'] },
+    { id: 'portfolio', image: portfolioPic, repoUrl: 'https://github.com/ademguettafi/Portfolio', liveUrl: 'https://ademguettafiportfolio.netlify.app/', tags: ['React.js', 'Material UI'] },
+    { id: 'JEU X-O', image: xPic, repoUrl: 'https://github.com/ademguettafi/X-O-game', liveUrl: 'https://adem-x-o-game.netlify.app/', tags: ['JavaScript'] },
+    { id: 'List To-Do', image: TodoJs, repoUrl: 'https://github.com/ademguettafi/List-ToDo-js', liveUrl: 'https://adem-list-todo-js.netlify.app/', tags: ['JavaScript'] },
+    { id: 'List To-Do React', image: todoReactPic, repoUrl: 'https://github.com/ademguettafi/Liste-Todo-React', liveUrl: 'https://guettafi-todolist-84c363.netlify.app/', tags: ['React.js', 'Material UI'] },
+    { id: 'Cs.constantine web', image: club, repoUrl: '', liveUrl: '', tags: ['JavaScript'] },
   ];
 
   const skills = [
@@ -126,6 +131,7 @@ export default function App() {
 
       <Contact />
 
+      <ScrollTop />
       <Footer />
     </ThemeProvider>
   );
