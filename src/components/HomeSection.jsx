@@ -25,7 +25,7 @@ export default function HomeSection() {
   const theme = useTheme();
   const { t } = useTranslation();
 
-  // couleur GitHub dynamique selon le mode
+  // couleur GitHub dynamique
   const githubColor =
     theme.palette.mode === "dark" ? "rgba(255,255,255,0.8)" : "#181717";
 
@@ -130,7 +130,7 @@ export default function HomeSection() {
             <motion.div whileHover={{ scale: 1 }}>
               <Button
                 component="a"
-                href="/Adem_Guettafi_CV.pdf"
+                href="/ADEM - CV.pdf"
                 download
                 variant="contained"
                 startIcon={<GetAppIcon />}
